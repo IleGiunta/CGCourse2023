@@ -74,19 +74,19 @@ int main(void)
 
 	GLuint positionAttribIndex = 0;
 	GLuint colorAttribIndex = 1;
-	float triangles[] = {
+	float triangle[] = {
 		0.0, 0.0, 1.0, 0.0, 0.0,	// 1st vertex: posX, posY, colR, colG,colB
 		0.5, 0.0, 0.0, 1.0, 0.0,	// 2nd vertex
 		0.5, 0.5, 0.0, 0.0, 1.0		// 3rd vertex
 	};
 
 	/// create a buffer
-	GLuint trianglesBuffer = 0;
-	glGenBuffers(1, &trianglesBuffer); //using Gen because for some reason Create doesn't work for me
-	glBindBuffer(GL_ARRAY_BUFFER, trianglesBuffer);
+	GLuint triangleBuffer = 0;
+	glGenBuffers(1, &triangleBuffer); //using Gen because for some reason Create doesn't work for me
+	glBindBuffer(GL_ARRAY_BUFFER, triangleBuffer);
 
 	/// declare what data in RAM are filling the bufferin video RAM
-	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 15, triangles, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 15, triangle, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(positionAttribIndex);
 	glEnableVertexAttribArray(colorAttribIndex);
 
