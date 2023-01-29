@@ -29,41 +29,70 @@ int main(void)
 
     printout_opengl_glsl_info();
 
-	/* create render data in RAM */
+	/// create render data in RAM
+
+	/*
 	GLuint positionAttribIndex = 0;
-	float positions[] = {	0.0, 0.0,  // 1st vertex
-							0.5, 0.0,  // 2nd vertex
-							0.5, 0.5
+	float positions[] = {	0.0, 0.0,	// 1st vertex
+							0.5, 0.0,	// 2nd vertex
+							0.5, 0.5	// 3rd vertex
 	};
-	/* create a buffer for the render data in video RAM */
+
+	/// create a buffer for the render data in video RAM
 
 	GLuint positionsBuffer = 0; // added = 0
 	glGenBuffers(1, &positionsBuffer); // changed from Create to Gen
 	glBindBuffer(GL_ARRAY_BUFFER, positionsBuffer);
 
-	/* declare what data in RAM are filling the bufferin video RAM */
+	/// declare what data in RAM are filling the bufferin video RAM
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6, positions, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(positionAttribIndex);
 
-	/* specify the data format */
+	/// specify the data format
 	glVertexAttribPointer(positionAttribIndex, 2, GL_FLOAT, false, 0, 0);
 
 	GLuint colorAttribIndex = 1;
-	float colors[] = {	1.0, 0.0, 0.0,  // 1st vertex
+	float colors[] = {	1.0, 0.0, 0.0,	// 1st vertex
 						0.0, 1.0, 0.0,  // 2nd vertex
-						0.0, 0.0, 1.0
+						0.0, 0.0, 1.0	// 3rd vertex
 	};
-	/* create a buffer for the render data in video RAM */
+	/// create a buffer for the render data in video RAM
 	GLuint colorsBuffer = 0; // added initialization = 0
-	glGenBuffers(1, &colorsBuffer); // changed from Create to Gen
+	glGenBuffers(1, &colorsBuffer);	// changed from Create to Gen
 	glBindBuffer(GL_ARRAY_BUFFER, colorsBuffer);
 
-	/* declare what data in RAM are filling the bufferin video RAM */
+	/// declare what data in RAM are filling the bufferin video RAM
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 9, colors, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(colorAttribIndex);
 
-	/* specify the data format */
+	/// specify the data format
 	glVertexAttribPointer(colorAttribIndex, 3, GL_FLOAT, false, 0, 0);
+	*/
+
+	/// \note exercise first_steps
+	/// \details Change the code of code_1_my_first_triangle/main.cpp so that  only one %ARRAY_BUFFER is used (that is, only one ^GLBindBuffer and only one ^GLBufferData)
+
+	GLuint positionAttribIndex = 0;
+	GLuint colorAttribIndex = 1;
+	float triangles[] = {
+		0.0, 0.0, 1.0, 0.0, 0.0,	// 1st vertex: posX, posY, colR, colG,colB
+		0.5, 0.0, 0.0, 1.0, 0.0,	// 2nd vertex
+		0.5, 0.5, 0.0, 0.0, 1.0		// 3rd vertex
+	};
+
+	/// create a buffer
+	GLuint trianglesBuffer = 0;
+	glGenBuffers(1, &trianglesBuffer); //using Gen because for some reason Create doesn't work for me
+	glBindBuffer(GL_ARRAY_BUFFER, trianglesBuffer);
+
+	/// declare what data in RAM are filling the bufferin video RAM
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 15, triangles, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(positionAttribIndex);
+	glEnableVertexAttribArray(colorAttribIndex);
+
+	/// specify the data format
+	glVertexAttribPointer(positionAttribIndex, 2, GL_FLOAT, false, 20, 0);
+	glVertexAttribPointer(colorAttribIndex, 3, GL_FLOAT, false, 20, (GLvoid*)8);
 
 /*  \BEGIN IGNORATE DA QUI IN POI */
 	/* create a vertex shader */
