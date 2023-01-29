@@ -44,7 +44,7 @@ int main(void)
 	glGenBuffers(1, &positionsBuffer); // changed from Create to Gen
 	glBindBuffer(GL_ARRAY_BUFFER, positionsBuffer);
 
-	/// declare what data in RAM are filling the bufferin video RAM
+	/// declare what data in RAM are filling the buffering video RAM
 	glBufferData(GL_ARRAY_BUFFER, sizeof(float) * 6, positions, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(positionAttribIndex);
 
@@ -70,7 +70,7 @@ int main(void)
 	*/
 
 	/// \note exercise first_steps
-	/// \details Change the code of code_1_my_first_triangle/main.cpp so that  only one %ARRAY_BUFFER is used (that is, only one ^GLBindBuffer and only one ^GLBufferData)
+	/// \details Change the code of code_1_my_first_triangle/main.cpp so that  only one %ARRAY_BUFFER is used (that is, only one ^glBindBuffer and only one ^glBufferData)
 
 	GLuint positionAttribIndex = 0;
 	GLuint colorAttribIndex = 1;
