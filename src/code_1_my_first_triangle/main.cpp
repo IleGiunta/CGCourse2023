@@ -36,8 +36,9 @@ int main(void)
 							0.5, 0.5
 	};
 	/* create a buffer for the render data in video RAM */
-	GLuint positionsBuffer;
-	glCreateBuffers(1, &positionsBuffer);
+
+	GLuint positionsBuffer = 0; // added = 0
+	glGenBuffers(1, &positionsBuffer); // changed from Create to Gen
 	glBindBuffer(GL_ARRAY_BUFFER, positionsBuffer);
 
 	/* declare what data in RAM are filling the bufferin video RAM */
@@ -53,8 +54,8 @@ int main(void)
 						0.0, 0.0, 1.0
 	};
 	/* create a buffer for the render data in video RAM */
-	GLuint colorsBuffer;
-	glCreateBuffers(1, &colorsBuffer);
+	GLuint colorsBuffer = 0; // added initialization = 0
+	glGenBuffers(1, &colorsBuffer); // changed from Create to Gen
 	glBindBuffer(GL_ARRAY_BUFFER, colorsBuffer);
 
 	/* declare what data in RAM are filling the bufferin video RAM */
@@ -109,7 +110,15 @@ int main(void)
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
-        glClear(GL_COLOR_BUFFER_BIT);
+		
+		//glClearColor(0, 191, 255, 1.0);
+		
+		//glClearColor(127, 128, 204, 1.0); 
+		//for some reason this color doesnt work? the bg becomes white if i use this color
+		
+		glClear(GL_COLOR_BUFFER_BIT);
+
+		//glColor3f(0.0,0.0,1.0);
 
 		glUseProgram(program_shader);
 
