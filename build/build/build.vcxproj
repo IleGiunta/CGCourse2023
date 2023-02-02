@@ -130,7 +130,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\code_1_my_first_triangle\main.cpp" />
+    <ClCompile Include="..\..\src\code_3_box2d\main_create_box2d.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\common\debugging.h" />
+    <ClInclude Include="..\..\src\common\renderable.h" />
+    <ClInclude Include="..\..\src\common\shaders.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
