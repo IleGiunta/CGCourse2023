@@ -31,7 +31,8 @@ struct renderable {
 	}
 
 	template <class T>
-	GLuint add_vertex_attribute(T* values, unsigned int count,
+	GLuint add_vertex_attribute(T* values, 
+		unsigned int count,
 		unsigned int attribute_index,
 		unsigned int num_components,
 		unsigned int TYPE,
