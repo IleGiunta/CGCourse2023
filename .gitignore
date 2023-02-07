@@ -272,3 +272,4 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+/src/code_3_box2d/main_create_box2d.cpp

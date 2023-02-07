@@ -12,8 +12,8 @@ GLM library for math  https://github.com/g-truc/glm
 it's a header-only library. You can just copy the folder glm into 3dparty
 and set the path properly. 
 */
-#include <glm/glm.hpp>  
-#include <glm/ext.hpp>  
+#include <glm.hpp>//<glm/glm.hpp>  
+#include <ext.hpp>  //<glm/ext.hpp>  
 
 int main(void)
 {
@@ -43,8 +43,10 @@ int main(void)
 	basic_shader.bind("uP");
 	basic_shader.bind("uV");
 	basic_shader.bind("uT");
-	check_shader(basic_shader.vs);
-	check_shader(basic_shader.fs);
+	//the check shaders are returning false, i think it might be because theres no call to create_shader?
+	// because the info log is 0 when the shader is created
+	std::cout << check_shader(basic_shader.vs, false);
+	check_shader(basic_shader.fs, false);
     validate_shader_program(basic_shader.pr);
 
 	/* Set the uT matrix to Identity */

@@ -5,7 +5,7 @@
 #include "..\common\debugging.h"
 #include "..\common\renderable.h"
 #include "..\common\shaders.h"
-using namespace std; // permette di omettere std:: durante la dichiarazione delle variabili
+using namespace std; // permette di omettere "std::" durante la dichiarazione delle variabili
 renderable r;
 
 /*	this function  sets up the buffers for rendering a box  made
@@ -118,7 +118,6 @@ void create_box2d(int nx, int ny) {
     }
     r.create();
     r.add_vertex_attribute<float>(&pos[0], sizeof(float) * pos.size(), 0, 2); //pos.size() was nvert
-
     r.add_vertex_attribute<float>(&colors[0], sizeof(float) * colors.size(), 1, 3);
     r.add_indices(&indici[0], sizeof(unsigned int) * indici.size(), GL_TRIANGLES);
     check_gl_errors(__LINE__, __FILE__);
@@ -151,33 +150,58 @@ int main(void)
 
     printout_opengl_glsl_info();
 
-    int nx = 2;
-    int ny = 2;
-    int nvert_render = 6 * nx * ny; //numero di vertici da renderizzrare
+    //warning: doesnt render 10x10 (max size 9x10 and 10x9)
+    //will sometimes crash if its over 5
+    int nx = 5;
+    int ny = 4;
+    int nvert_render = 6 * nx * ny; //numero di vertici da renderizzare
 
     create_box2d(nx, ny);
     r.bind();
-
-    //shader
     
-    /*shader s;
+    shader s;
+
+    /* create a vertex shader */
+    std::string  vertex_shader_src = "#version 330\n \
+        in vec2 aPosition;\
+        in vec3 aColor;\
+        out vec3 vColor;\
+        void main(void)\
+        {\
+         gl_Position = vec4(aPosition, 0.0, 1.0);\
+         vColor = aColor;\
+        }\
+       ";
+    const GLchar* vs_source = (const GLchar*)vertex_shader_src.c_str();
+
+    /* create a fragment shader */
+    std::string   fragment_shader_src = "#version 330 \n \
+        out vec4 color;\
+        in vec3 vColor;\
+        void main(void)\
+        {\
+            color = vec4(vColor, 1.0);\
+        }";
+    const GLchar* fs_source = (const GLchar*)fragment_shader_src.c_str();
+
+    //s.create_program(vs_source, fs_source);
     s.create_program("../../src/code_2_wrapping/shaders/basic.vert", "../../src/code_2_wrapping/shaders/basic.frag");
     //s.bind("uDelta");
-    check_shader(s.vs);
-    check_shader(s.fs);
+    //check_shader(s.vs);
+    //check_shader(s.fs);
     validate_shader_program(s.pr);
-    */
+
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
         glClear(GL_COLOR_BUFFER_BIT);
-        //glUseProgram(s.pr);
+        glUseProgram(s.pr);
 
         /* here the call to render the box --*/
         glDrawElements(GL_TRIANGLES, (GLsizei)nvert_render, GL_UNSIGNED_INT, 0); // nverts replaces 4
         check_gl_errors(__LINE__, __FILE__);
-        //glUseProgram(0);
+        glUseProgram(0);
         /* -------------------------------------*/
         
         /* Swap front and back buffers */

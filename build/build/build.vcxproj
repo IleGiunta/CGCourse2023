@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\3dparty\glew\include;..\..\3dparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\3dparty\glew\include;..\..\3dparty\glfw\include;..\..\3dparty\glm</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,9 +130,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\code_3_box2d\main_create_box2d.cpp" />
+    <ClCompile Include="..\..\src\code_4_my_first_car\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\3dparty\glm\ext.hpp" />
+    <ClInclude Include="..\..\3dparty\glm\glm.hpp" />
     <ClInclude Include="..\..\src\common\debugging.h" />
     <ClInclude Include="..\..\src\common\renderable.h" />
     <ClInclude Include="..\..\src\common\shaders.h" />
