@@ -1,6 +1,6 @@
 #pragma once
-#include <glm/glm.hpp>  
-#include <glm/ext.hpp>
+#include <glm.hpp>  //<glm/glm.hpp>  
+#include <ext.hpp>  //<glm/ext.hpp>  
 #include <vector>
 #include <iostream>
 

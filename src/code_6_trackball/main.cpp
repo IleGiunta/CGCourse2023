@@ -13,20 +13,20 @@ GLM library for math  https://github.com/g-truc/glm
 it's a header-only library. You can just copy the folder glm into 3dparty
 and set the path properly. 
 */
-#include <glm/glm.hpp>  
-#include <glm/ext.hpp>  
+#include <glm.hpp>  //<glm/glm.hpp>  
+#include <ext.hpp>  //<glm/ext.hpp>  
 
 
-/* projection matrix*/
+/* projection matrix */
 glm::mat4 proj;
 
-/* view matrix*/
+/* view matrix */
 glm::mat4 view;
 
-/* a bool variable that indicates if we are currently rotating the trackball*/
+/* a bool variable that indicates if we are currently rotating the trackball */
 bool is_trackball_dragged;
 
-/* callbakc function called when the mouse is moving */
+/* callback function called when the mouse is moving */
 static void cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 {
 	std::cout << xpos << " " << ypos << " " << std::endl;
@@ -43,7 +43,7 @@ static void cursor_position_callback(GLFWwindow* window, double xpos, double ypo
 	3. with p0 and p1 compute the rotation vector and angle as seen in the slides
 	4. with glm::rotate create the rotation matrix
 	
-	*BE CAREFUL at point 2*: the ray and sphere must be in the same  frame when computing
+	*BE CAREFUL at point 2*: the ray and sphere must be in the same frame when computing
 	the intersection. 
 
 	*/
@@ -52,12 +52,12 @@ static void cursor_position_callback(GLFWwindow* window, double xpos, double ypo
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
-		/* here the button is pressed  and hence the dragging of the trackball can start*/
+		/* here the button is pressed and hence the dragging of the trackball can start */
 		std::cout << " GLFW_MOUSE_BUTTON_LEFT PRESSED" << std::endl;
 	}
 	else 
 		if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
-			/* here the button is pressed  and hence the dragging of the trackball ends*/
+			/* here the button is pressed and hence the dragging of the trackball ends */
 			std::cout << " GLFW_MOUSE_BUTTON_LEFT RELEASED" << std::endl;
 	}
 }
@@ -110,10 +110,10 @@ int main(void)
 
 	check_gl_errors(__LINE__, __FILE__);
 
-	/* create a  cube   centered at the origin with side 2*/
+	/* create a cube centered at the origin with side 2 */
 	renderable r_cube = shape_maker::cube(0.5, 0.3, 0.0);
 
-	/* create 3 lines showing the reference frame*/
+	/* create 3 lines showing the reference frame */
 	renderable r_frame = shape_maker::frame(4.0);
 
 	check_gl_errors(__LINE__, __FILE__);
@@ -125,7 +125,7 @@ int main(void)
 
 	matrix_stack stack;
 
-	/* define the viewport  */
+	/* define the viewport */
 	glViewport(0, 0, 1000, 800);
 
 	/* Loop until the user closes the window */
