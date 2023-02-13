@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\glm headers">
+      <UniqueIdentifier>{579fcdb4-fb06-4673-b0f6-f6796313a530}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\code_6_trackball\main.cpp">
@@ -34,6 +37,12 @@
     </ClInclude>
     <ClInclude Include="..\..\src\common\simple_shapes.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3dparty\glm\ext.hpp">
+      <Filter>Header Files\glm headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\3dparty\glm\glm.hpp">
+      <Filter>Header Files\glm headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

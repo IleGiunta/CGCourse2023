@@ -24,6 +24,7 @@
     <ProjectGuid>{c4a9ba60-0c80-47c2-9e53-897be68541a1}</ProjectGuid>
     <RootNamespace>trackball</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>6_trackball</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -135,6 +136,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\3dparty\glm\ext.hpp" />
+    <ClInclude Include="..\..\3dparty\glm\glm.hpp" />
     <ClInclude Include="..\..\src\common\debugging.h" />
     <ClInclude Include="..\..\src\common\matrix_stack.h" />
     <ClInclude Include="..\..\src\common\renderable.h" />

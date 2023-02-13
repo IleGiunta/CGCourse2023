@@ -94,7 +94,8 @@ int main(void)
 
 	/* load the shaders */
 	shader basic_shader;
-	basic_shader.create_program("shaders/basic.vert", "shaders/basic.frag");
+	basic_shader.create_program("../../src/code_6_trackball/shaders/basic.vert", "../../src/code_6_trackball/shaders/basic.frag");
+	//	basic_shader.create_program("shaders/basic.vert", "shaders/basic.frag");
 	basic_shader.bind("uP");
 	basic_shader.bind("uV");
 	basic_shader.bind("uT");
@@ -184,3 +185,7 @@ int main(void)
 	glfwTerminate();
 	return 0;
 }
+
+/// @note
+///  rotation_vector.length restituisce numero di componenti
+///  glm::length(rotation_vector) returns lunghezza

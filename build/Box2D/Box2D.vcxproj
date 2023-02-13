@@ -24,6 +24,7 @@
     <ProjectGuid>{046a65fe-0cbb-4532-870d-90d50f39225c}</ProjectGuid>
     <RootNamespace>Box2D</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>3_Box2D</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
